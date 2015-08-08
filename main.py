@@ -12,6 +12,10 @@ def stopserver():
     print("Stoping Server")
 
 
+def bans():
+    print("Ban Manager")
+
+
 def config():
     print("Config this server!")
 
@@ -49,6 +53,7 @@ while ans:
 
         print("start : Start Gmod server ")
         print("stop : Stop Gmod server ")
+        print("bans : Opens Ban Manager")
         print("config : Change server parameters ")
         print("console : Opens server console ")
         print("logs : Opens Log Manager ")
@@ -63,6 +68,10 @@ while ans:
     elif ans == "stop":
 
         stopserver()
+
+    elif ans == "ban":
+
+        bans()
 
     elif ans == "config":
 
