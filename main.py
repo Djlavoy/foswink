@@ -2,10 +2,6 @@ import subprocess
 
 subprocess.call(" figlet FosWink", shell=True)
 
-ans = True
-
-
-
 ## Functions
 
 def startserver():
@@ -28,10 +24,12 @@ def logs():
     print("Catch the Tail for the logs")
 
 
+# Main Loop for MainMenu
+
 print("FosWink Main Menu")
 
+ans = True
 
-# Main Loop for MainMenu
 while ans:
     ans = raw_input("[FosWink]~> ")
 
