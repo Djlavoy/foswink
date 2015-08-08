@@ -28,6 +28,10 @@ def installer():
     print("Gmod Installer")
 
 
+def update():
+    print("Updating Gmod")
+
+
 def mountgames():
     print("Mounting Games")
 
@@ -75,6 +79,10 @@ while ans:
     elif ans == "installer":
 
         installer()
+
+    elif ans == "update":
+
+        update()
 
     elif ans == "mount":
 
