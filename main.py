@@ -24,6 +24,14 @@ def logs():
     print("Catch the Tail for the logs")
 
 
+def installer():
+    print("Gmod Installer")
+
+
+def mountgames():
+    print("Mounting Games")
+
+
 # Main Loop for MainMenu
 
 print("FosWink Main Menu")
@@ -40,6 +48,8 @@ while ans:
         print("config : Change server parameters ")
         print("console : Opens server console ")
         print("logs : Opens Log Manager ")
+        print("installer : Install Gmod")
+        print("mount : Mount Games to Gmod")
         print("exit : Exit FosWink ")
 
     elif ans == "start":
@@ -61,6 +71,14 @@ while ans:
     elif ans == "logs":
 
         logs()
+
+    elif ans == "installer":
+
+        installer()
+
+    elif ans == "mount":
+
+        mountgames()
 
     elif ans == "exit":
         break
