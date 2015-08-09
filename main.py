@@ -57,6 +57,7 @@ def installer():
 
         arch = subprocess.call("uname -m", shell=True)
 
+        arch = "x86_64"
         if arch == "x86_64":
 
             print("Getting 32bit Libs\n")
@@ -73,7 +74,7 @@ def installer():
             print("32Bit System No need to install Libs\n")
 
         print("Running SteamCMD\n")
-        subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(login, GmodDir, GmodID), shell=True)
+        subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(SteamDir, login, GmodDir, GmodID), shell=True)
 
         print("Completed: Gmod is Located in {}\n".format)
 
