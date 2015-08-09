@@ -53,7 +53,7 @@ def installer():
         subprocess.call("wget -P {} {}".format(SteamDir, SteamCMD), shell=True)
 
         print("Extracting SteamCMD")
-        subprocess.call("tar -zxvf {}/steamcmd_linux.tar.gz".format(SteamDir), shell=True)
+        subprocess.call("tar -zxvf {}/steamcmd_linux.tar.gz -C {}/".format(SteamDir, SteamDir), shell=True)
 
         arch = subprocess.call("uname -m", shell=True)
 
