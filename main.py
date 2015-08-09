@@ -73,10 +73,7 @@ def installer():
             print("32Bit System No need to install Libs\n")
 
         print("Running SteamCMD\n")
-        subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(login,
-                                                                                                          GmodDir,
-                                                                                                          GmodID),
-                        shell=True)
+        subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(login, GmodDir, GmodID), shell=True)
 
         print("Completed: Gmod is Located in {}\n".format)
 
@@ -85,10 +82,7 @@ def installer():
 
 def update():
     print("Updating Gmod")
-    subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(login,
-                                                                                                      GmodDir,
-                                                                                                      GmodID),
-                    shell=True)
+    subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(login, GmodDir, GmodID), shell=True)
 
 def mountgames():
     print("Mounting Games")
