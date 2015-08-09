@@ -11,6 +11,7 @@ GmodDir = "~/gmod"
 GmodID = 4020
 login = "anonymous"
 SteamCMD = "http://media.steampowered.com/client/steamcmd_linux.tar.gz"
+SystemOS = "ubuntu"
 
 ## Functions
 
@@ -54,6 +55,16 @@ def installer():
         print("Extracting SteamCMD")
         subprocess.call("tar -zxvf {}/steamcmd_linux.tar.gz", shell=True)
 
+        print("Getting 32bit Libs")
+        if SystemOS == "Ubuntu":
+            subprocess.call("sudo apt-get -y install lib32stdc++6", shell=True)
+        elif SystemOS == "Centos":
+            subprocess.call("yum install -y glibc.i686 libstdc++.i686", shell=True)
+        elif SystemOS == "Arch":
+            subprocess.call("pacman -S lib32-gcc-libs", shell=True);
+        else:
+            print("You have to set SystemOS to ether Ubuntu, Centos, or Arch")
+
         print("Running SteamCMD")
         subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(login,
                                                                                                           GmodDir,
@@ -62,7 +73,7 @@ def installer():
 
         print("Completed: Gmod is Located in {}".format)
 
-    
+
 
 
 def update():
