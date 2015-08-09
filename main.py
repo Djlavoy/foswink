@@ -1,14 +1,26 @@
 import subprocess
+import os
+
 
 subprocess.call(" figlet FosWink", shell=True)
+
+#Config Vars
+
+SteamDir = "~/steam"
+GmodDir = "~/gmod"
+GmodID = 4020
+login = "anonymous"
+SteamCMD = "http://media.steampowered.com/client/steamcmd_linux.tar.gz"
 
 ## Functions
 
 def startserver():
+    #TODO, Start screen run command to start server
     print("Starting Server")
 
 
 def stopserver():
+    #TODO, Stop server then end screen
     print("Stoping Server")
 
 
@@ -29,12 +41,36 @@ def logs():
 
 
 def installer():
-    print("Gmod Installer")
+    if os.path.exists(SteamDir):
+        print("Directory {} Already Exist Skipping".format(SteamDir))
+    else:
+        print("Directory {} Not Dectected Creating {}".format(SteamDir, SteamDir))
+        os.makedirs(SteamDir)
+        print("Directory {} Created!".format(SteamDir))
+
+        print("Getting SteamCMD")
+        subprocess.call("wget -P {} {}".format(SteamDir, SteamCMD), shell=True)
+
+        print("Extracting SteamCMD")
+        subprocess.call("tar -zxvf {}/steamcmd_linux.tar.gz", shell=True)
+
+        print("Running SteamCMD")
+        subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(login,
+                                                                                                          GmodDir,
+                                                                                                          GmodID),
+                        shell=True)
+
+        print("Completed: Gmod is Located in {}".format)
+
+    
 
 
 def update():
     print("Updating Gmod")
-
+    subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(login,
+                                                                                                      GmodDir,
+                                                                                                      GmodID),
+                    shell=True)
 
 def mountgames():
     print("Mounting Games")
