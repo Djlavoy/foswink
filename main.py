@@ -55,23 +55,30 @@ def installer():
         print("Extracting SteamCMD")
         subprocess.call("tar -zxvf {}/steamcmd_linux.tar.gz", shell=True)
 
-        print("Getting 32bit Libs")
-        if SystemOS == "Ubuntu":
-            subprocess.call("sudo apt-get -y install lib32stdc++6", shell=True)
-        elif SystemOS == "Centos":
-            subprocess.call("yum install -y glibc.i686 libstdc++.i686", shell=True)
-        elif SystemOS == "Arch":
-            subprocess.call("pacman -S lib32-gcc-libs", shell=True);
-        else:
-            print("You have to set SystemOS to ether Ubuntu, Centos, or Arch")
+        arch = subprocess.call("uname - m", shell=True)
 
-        print("Running SteamCMD")
+        if arch == "x86_64":
+
+            print("Getting 32bit Libs\n")
+
+            if SystemOS == "Ubuntu":
+                subprocess.call("sudo apt-get -y install lib32stdc++6", shell=True)
+            elif SystemOS == "Centos":
+                subprocess.call("yum install -y glibc.i686 libstdc++.i686", shell=True)
+            elif SystemOS == "Arch":
+                subprocess.call("pacman -S lib32-gcc-libs", shell=True);
+            else:
+                print("You have to set SystemOS to ether Ubuntu, Centos, or Arch\n")
+        else:
+            print("32Bit System No need to install Libs\n")
+
+        print("Running SteamCMD\n")
         subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(login,
                                                                                                           GmodDir,
                                                                                                           GmodID),
                         shell=True)
 
-        print("Completed: Gmod is Located in {}".format)
+        print("Completed: Gmod is Located in {}\n".format)
 
 
 
