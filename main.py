@@ -6,8 +6,8 @@ subprocess.call(" figlet FosWink", shell=True)
 
 #Config Vars
 
-SteamDir = "/root/steam"
-GmodDir = "/root/gmod"
+SteamDir = "steam"
+GmodDir = "../gmod"
 GmodID = 4020
 login = "anonymous"
 SteamCMD = "http://media.steampowered.com/client/steamcmd_linux.tar.gz"
@@ -55,7 +55,7 @@ def installer():
         print("Extracting SteamCMD")
         subprocess.call("tar -zxvf {}/steamcmd_linux.tar.gz", shell=True)
 
-        arch = subprocess.call("uname - m", shell=True)
+        arch = subprocess.call("uname -m", shell=True)
 
         if arch == "x86_64":
 
