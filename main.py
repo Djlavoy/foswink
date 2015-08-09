@@ -11,7 +11,7 @@ GmodDir = "gmod"
 GmodID = 4020
 login = "anonymous"
 SteamCMD = "http://media.steampowered.com/client/steamcmd_linux.tar.gz"
-SystemOS = "ubuntu"
+SystemOS = "Ubuntu"
 
 ## Functions
 
@@ -55,28 +55,23 @@ def installer():
         print("Extracting SteamCMD")
         subprocess.call("tar -zxvf {}/steamcmd_linux.tar.gz -C {}/".format(SteamDir, SteamDir), shell=True)
 
-        arch = subprocess.call("uname -m", shell=True)
+        print("Getting 32bit Libs\n")
 
-        arch = "x86_64"
-        if arch == "x86_64":
-
-            print("Getting 32bit Libs\n")
-
-            if SystemOS == "Ubuntu":
-                subprocess.call("sudo apt-get -y install lib32stdc++6", shell=True)
-            elif SystemOS == "Centos":
-                subprocess.call("yum install -y glibc.i686 libstdc++.i686", shell=True)
-            elif SystemOS == "Arch":
-                subprocess.call("pacman -S lib32-gcc-libs", shell=True);
-            else:
-                print("You have to set SystemOS to ether Ubuntu, Centos, or Arch\n")
+        if SystemOS == "Ubuntu":
+            subprocess.call("sudo apt-get -y install lib32stdc++6", shell=True)
+        elif SystemOS == "Centos":
+            subprocess.call("yum install -y glibc.i686 libstdc++.i686", shell=True)
+        elif SystemOS == "Arch":
+            subprocess.call("pacman -S lib32-gcc-libs", shell=True);
+        else:
+            print("You have to set SystemOS to ether Ubuntu, Centos, or Arch\n")
         else:
             print("32Bit System No need to install Libs\n")
 
-        print("Running SteamCMD\n")
-        subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(SteamDir, login, GmodDir, GmodID), shell=True)
+    print("Running SteamCMD\n")
+    subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(SteamDir, login, GmodDir, GmodID), shell=True)
 
-        print("Completed: Gmod is Located in {}\n".format)
+    print("Completed: Gmod is Located in {}\n".format)
 
 
 
