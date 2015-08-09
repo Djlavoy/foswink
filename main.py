@@ -6,8 +6,8 @@ subprocess.call(" figlet FosWink", shell=True)
 
 #Config Vars
 
-SteamDir = "~/steam"
-GmodDir = "~/gmod"
+SteamDir = "/root/steam"
+GmodDir = "/root/gmod"
 GmodID = 4020
 login = "anonymous"
 SteamCMD = "http://media.steampowered.com/client/steamcmd_linux.tar.gz"
