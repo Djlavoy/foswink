@@ -96,12 +96,12 @@ def mountgames():
 
 # Main Loop for MainMenu
 
-print("FosWink Main Menu ( Press Enter to Exit )")
+print("FosWink Main Menu")
 
 ans = True
 
 while ans:
-    ans = raw_input("FosWink: ")
+    ans = raw_input("FosWink: ") or "empty"
 
     if ans == "help":
 
