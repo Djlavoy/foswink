@@ -6,11 +6,22 @@ subprocess.call(" figlet FosWink", shell=True)
 
 #Config Vars
 
+# The Direcory to install SteamCMD Default is realive foswink
 SteamDir = "steam"
+
+# The Directory to install Gmod,Default is relative foswink
 GmodDir = "gmod"
+
+# Gmods Steam ID
 GmodID = 4020
+
+# Login user
 login = "anonymous"
+
+# SteamCMD Download Link
 SteamCMD = "http://media.steampowered.com/client/steamcmd_linux.tar.gz"
+
+#Which OS you are running chooses are Ubuntu, Centos, Arch
 SystemOS = "Ubuntu"
 
 ## Functions
@@ -85,7 +96,7 @@ def mountgames():
 
 # Main Loop for MainMenu
 
-print("FosWink Main Menu")
+print("FosWink Main Menu (Press Enter to Exit)")
 
 ans = True
 
