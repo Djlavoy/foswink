@@ -87,7 +87,7 @@ def installer():
 
 def update():
     print("Updating Gmod")
-    subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(login, GmodDir, GmodID), shell=True)
+    subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(SteamDir, login, GmodDir, GmodID), shell=True)
 
 def mountgames():
     print("Mounting Games")
@@ -111,6 +111,7 @@ while ans:
         print("console : Opens server console ")
         print("logs : Opens Log Manager ")
         print("installer : Install Gmod")
+        print("update : Update Gmod")
         print("mount : Mount Games to Gmod")
         print("exit : Exit FosWink ")
 
