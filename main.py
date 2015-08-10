@@ -12,7 +12,7 @@ SteamDir = "steam"
 # The Directory to install Gmod,Default is relative foswink
 GmodDir = "gmod"
 
-# Gmods Steam ID
+# Gmods Steam ID 
 GmodID = 4020
 
 # Login user
@@ -100,7 +100,7 @@ print("FosWink Main Menu")
 ans = True
 
 while ans:
-    ans = raw_input("FosWink: ") or "empty"
+    ans = raw_input("[FosWink]: ") or "empty"
 
     if ans == "help":
 
