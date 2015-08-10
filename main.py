@@ -76,7 +76,6 @@ def installer():
             subprocess.call("pacman -S lib32-gcc-libs", shell=True);
         else:
             print("You have to set SystemOS to ether Ubuntu, Centos, or Arch\n")
-            print("32Bit System No need to install Libs\n")
 
     print("Running SteamCMD\n")
     subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(SteamDir, login, GmodDir, GmodID), shell=True)
