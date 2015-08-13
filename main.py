@@ -26,6 +26,16 @@ SystemOS = "Ubuntu"
 
 ## Functions
 
+def cleanup():
+    print("Cleaning Up")
+    if os.path.exists("../Steam"):
+        print("Found ../Steam")
+        subprocess.call("rm -rf ../Steam", shell=True)
+        print("Clean Up Complete")
+    else:
+        print("Clean Up Complete")
+
+
 def startserver():
     #TODO, Start screen run command to start server
     print("Starting Server")
@@ -79,15 +89,15 @@ def installer():
 
     print("Running SteamCMD\n")
     subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(SteamDir, login, GmodDir, GmodID), shell=True)
-
+    
     print("Completed: Gmod is Located in {}\n".format)
-
-
+    cleanup()
 
 
 def update():
     print("Updating Gmod")
     subprocess.call("bash {}/steamcmd.sh +login {} +force_install_dir {} +app_update {} +quit".format(SteamDir, login, GmodDir, GmodID), shell=True)
+    cleanup()
 
 def mountgames():
     print("Mounting Games")
