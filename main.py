@@ -25,7 +25,7 @@ SteamCMD = "http://media.steampowered.com/client/steamcmd_linux.tar.gz"
 SystemOS = "Ubuntu"
 
 #Should FosWink Cleanup after itself ? 
-ShouldICleanup = False
+ShouldICleanup = True
 ## Functions
 
 def cleanup():
