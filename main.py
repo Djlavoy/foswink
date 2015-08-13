@@ -26,6 +26,10 @@ SystemOS = "Ubuntu"
 
 #Should FosWink Cleanup after itself ? 
 ShouldICleanup = True
+
+srcds_game = "garrysmod"
+srcds_maxplayer = "12"
+srcds_map = "gm_flatgrass"
 ## Functions
 
 def cleanup():
@@ -43,11 +47,12 @@ def cleanup():
 def startserver():
     #TODO, Start screen run command to start server
     print("Starting Server")
-
+    subprocess.call("screen -S {} -d -m sh -c './{}/{}/srcds_run -game {} +maxplayers {} +map {}'".format(srcds_game, SteamDir, GmodDir, srcds_game, srcds_maxplayer, srcds_map), shell=True )
 
 def stopserver():
     #TODO, Stop server then end screen
     print("Stoping Server")
+    subprocess.call("screen -X -S '{}' quit".format(srcds_game), shell=True)
 
 
 def bans():
@@ -60,7 +65,7 @@ def config():
 
 def console():
     print("Console Text")
-
+    subprocess.call("screen -x {}".format(srcds_game), shell=True)
 
 def logs():
     print("Catch the Tail for the logs")
