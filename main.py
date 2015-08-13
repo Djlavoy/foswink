@@ -24,17 +24,21 @@ SteamCMD = "http://media.steampowered.com/client/steamcmd_linux.tar.gz"
 #Which OS you are running chooses are Ubuntu, Centos, Arch
 SystemOS = "Ubuntu"
 
+#Should FosWink Cleanup after itself ? 
+ShouldICleanup = False
 ## Functions
 
 def cleanup():
-    print("Cleaning Up")
-    if os.path.exists("../Steam"):
-        print("Found ../Steam")
-        subprocess.call("rm -rf ../Steam", shell=True)
-        print("Clean Up Complete")
+    if ShouldICleanup == True:
+        print("Cleaning Up")
+        if os.path.exists("../Steam"):
+            print("Found ../Steam")
+            subprocess.call("rm -rf ../Steam", shell=True)
+            print("Clean Up Complete")
+        else:
+            print("Clean Up Complete")
     else:
-        print("Clean Up Complete")
-
+        print("Cleanup Disabled")
 
 def startserver():
     #TODO, Start screen run command to start server
