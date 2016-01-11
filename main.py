@@ -1,7 +1,7 @@
 import subprocess
 import os
 
-
+subprocess.call("apt-get install figlet -y", shell=True)
 subprocess.call(" figlet FosWink", shell=True)
 
 #Config Vars
